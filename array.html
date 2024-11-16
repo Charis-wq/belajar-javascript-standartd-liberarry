@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <script>
+        /*tipe data array kita sudah tahu,namun kita hanya membahas beberapa instance saja 
+        sebenarnya terdapat banyak sekali instance methiod yaqng berada si array kita akan bahas 
+        beberapa disini.
+        */
+       
+        //array loop
+        /*sebelumnya kita bisa menggunakan forin dan forof untuk melakukan iterasi array,namun array
+        juga memiliki method yang bernama forEach 
+        method forEach bisa digunakan juga untuk melakukan iterasi data array
+        */
+       {
+
+        const array =['Abdul', 'Charis', 'Budi'];
+        //anoniymous function forEach
+        array.forEach(function (value, index){
+            console.info(`${index} : ${value}`);
+
+        });
+
+        //arrow function forEach
+        
+        array.forEach((value, index) => console.info(`${index} : ${value}`));
+
+        array.forEach((value) => console.info(`${value}`));
+
+    }
+
+    //array queue
+    /*-dalam setruktur data terdapat tipe struktur data bernama Queue(antrian)
+    -dimana data masuk akan di posisikan di urutan paling belakang
+    -sedangkan data keluar akan di posisikan di urutan paling depan
+    -mirip sekali dengan antrian dan istilahnya yaitu FIFO(first in first out)
+    -kita bisa mengunakan array dengan bantuan function push() untuk menambah data dari belakang
+    dan shift() unruk mengambil dan menghapus data dari depan.
+    */
+
+    {
+        const queue = [];
+
+        queue.push('Abdul');
+        queue.push('Charis');
+        queue.push('Budi');
+
+        console.info(queue.shift());//abdul
+        console.info(queue.shift());//charis
+        console.info(queue.shift());//budi
+        console.info(queue.shift());//undefined
+    }
+
+    //array stack
+    /*-struktur data stack(tumpukan) kebalikan dari Queue,dimana aturannya mirip dengan tumpukan kartu
+    -saat kita memasukan data,kita bisa memasukan di urutan paling belakang(atau atas)
+    -sedangkan saat kita mengambil data kita akan mengambil data paling belakang(atau atas) telebih dahulu
+    -stack ini sifatnya LIFO(last in first out)
+    -untuk menambah di urutan belakang,kita bisa menggunakan function push()
+    -dan untuk mengambil dan menghapus paling belakang,kita bisa menggunkana fintion pop()
+    */
+   {
+
+
+    const stack = [];
+
+        stack.push('Abdul');
+        stack.push('Charis');
+        stack.push('Budi');
+
+        console.info(stack.pop());//budi
+        console.info(stack.pop());//charis
+        console.info(stack.pop());//abdul
+        console.info(stack.pop());//undefined
+    }
+
+    //array search
+    //array memiliki banyak function untuk melakuakn bamyak pencarian :
+
+    {
+        const search = [1,2,3,4,5,1,2,3,4,5];
+
+
+        console.info(search.find(value => value > 3));//untuk mencari data dengan kondisi
+        console.info(search.findIndex(value => value > 3));//untuk mencari data index sesuai dengan kondisi
+        console.info(search.includes(7));//untuk mengecek apakah terdapat data
+        console.info(search.indexOf(5));//untuk mengecek posisi index data
+        console.info(search.lastIndexOf(5));//untuk mengecek posisi data index yang terakhih 
+
+    }
+
+    //array filter
+    //array memiliki function untuk melakukan filrter data
+    {
+        const numbers =[1,2,3,4,5,6,7,8,9,10];
+
+        console.info(numbers.filter(value => value % 2 === 1));
+        console.info(numbers.filter(value => value % 2 === 0));
+    }
+
+    //array transform
+    //array juga memiliki function yang bisa di gunakan untuk melakukan transformasi
+    
+    {
+        const names = ['Abdul', 'Charis', 'Hendra'];
+        //map melakukan transformasi tiap value dan menghasilkan array result
+        const newSlipper = names.map(value => value.toUpperCase());
+        console.info(newSlipper);
+
+        //reduce melakuakan transform dengan mrnggunakan value array dan value selanjutnya lalu dilanjutkan ke iterasi selanjutnya
+        const namesReduce = names.reduce((before, value) => before + ' ' + value);
+        console.info(namesReduce);
+
+        //reduceRight sama seperti reduce namun dilakukan dari belakang
+        const namesRight = names.reduceRight((before, value) => before + ' ' + value);
+        console.info(namesRight);
+
+
+        //contoh reduce lainnya :
+        const numbers = [1,2,3,4,5,6,7,8,9,10];
+        const total = numbers.reduce((before, value) => before + value );
+        console.info(total);
+    }
+    
+
+
+
+
+
+
+
+    
+
+
+
+    </script>
+</body>
+</html>
