@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <script>
+        /*json adalah singkatan dari (Javascript Object Notation)
+        json merupakan data string yang bentuknya mirip dengan javascript object
+        saat ini json seringkali di gunakan untuk komunikas antara server dan client
+        */
+
+        //JSON
+        /*-javascript mendukung konversi data dari string json ke object ataupun sebaliknya 
+        -JSON.stringfy.() digunakan untuk mengkonversi dari object ke string
+        -JSON.parse() digunakan untuk mengkonversi dari string ke object
+        */ 
+
+        const person = {
+            firstName : 'Abdul',
+            lastName : 'Charis',
+            address : {
+                country : 'Indonesia',
+                city : 'Semarang'
+                
+            },
+            hobby : [
+                'games', 'badminton'
+        ]
+        }
+
+        const json = JSON.stringify(person);
+        console.info(json);//object
+        console.info([json]);//array
+
+        const jsonObject = JSON.parse(json);
+        console.info(jsonObject);
+
+    </script>
+</body>
+</html>

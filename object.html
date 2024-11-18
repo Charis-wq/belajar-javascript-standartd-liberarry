@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        //kita akan bahas banyak static method yang terdapat pada object
+
+        //object freeze dan seal 
+        /*secara defailt object bisa di ubah atau di hapus propertiesnya
+        jika kita ingin mengubah sebuah object menjadi object yang tidak bisa di ubah atau di hapus 
+        kita bisa menggunakan beberapa static method 
+        -object.freeze() di gunakan untuk mengubah object menjadi object yang tidak bisa di ubah atau di hapus atributnya 
+        -object.seal() di gunakan untuk mengubah object menjadi object yang tidak bisa di hapus atributnya.
+        */
+       {
+
+        const person = {
+            firstName : 'Abdul',
+            lastName : 'Charis'
+        };
+
+        //Object.freeze(person);
+        Object.seal(person);
+        delete person.lastName;//tidak hilang
+        person.middleName = 'Kurniawan';//tidak bisa di tambah
+
+        console.info(person);
+
+    }
+
+    //object assign
+    /*kadang kita punya kasus menggabungkan semua attribute dari sebuah object ke object lain
+    hal ini bisa kita lakukan dengan menggunakan object.assign(targe, source)
+    */ 
+
+    {
+        const target ={
+            firstName : 'Abdul'
+        }
+
+        const source = {
+            lastName : 'Charis'
+        }
+
+        Object.assign(target, source);
+       console.info(target);//ini akan di gabung
+       console.info(source);
+    }
+
+    //object property name dan value
+    /*object juga memiliki sifat method untuk di gunakan mengambil semua properties names dan value
+    object.value()digunakan untuk mengambil semua value
+    object.getproperty() di gunakan untuk mengambil semua properties name.
+    */
+
+    {
+        const person = {
+            firstName : 'Abdul',
+            lastName : 'Charis'
+        }
+
+        console.info(Object.values(person));
+        console.info(Object.getOwnPropertyNames(person));
+    }
+
+
+
+
+    </script>
+</body>
+</html>
